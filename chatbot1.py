@@ -7,6 +7,7 @@ from langgraph.graph import StateGraph
 from pydantic import BaseModel
 from typing import List, Optional
 import re
+import json
 from google.cloud import bigquery
 from google.oauth2.service_account import Credentials
 
@@ -29,7 +30,8 @@ st.sidebar.markdown("- Loads created each month?")
 st.sidebar.markdown("- Average invoice amount?")
 
 # --- BigQuery Setup ---
-creds = Credentials.from_service_account_file("talon-prod.json")
+creds_dict = json.loads(st.secrets["GOOGLE_SERVICE_ACCOUNT_JSON"])
+creds = Credentials.from_service_account_info(creds_dict)
 PROJECT = "talon-prod-2024"
 DATASET = "Temp_02"
 client = bigquery.Client(credentials=creds, project=PROJECT)
