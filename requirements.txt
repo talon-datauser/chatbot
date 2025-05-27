@@ -6,3 +6,4 @@ langgraph
 google-cloud-bigquery
 google-auth
 pydantic
+db-dtypes
