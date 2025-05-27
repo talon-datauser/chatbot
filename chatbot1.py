@@ -9,6 +9,7 @@ from typing import List, Optional
 import re
 import json
 from google.cloud import bigquery
+from google.oauth2 import service_account
 from google.oauth2.service_account import Credentials
 
 # --- Streamlit UI ---
