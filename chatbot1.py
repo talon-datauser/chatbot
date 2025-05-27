@@ -31,7 +31,7 @@ st.sidebar.markdown("- Average invoice amount?")
 
 # --- BigQuery Setup ---
 creds_dict = json.loads(st.secrets["GOOGLE_SERVICE_ACCOUNT_JSON"])
-creds = Credentials.from_service_account_info(creds_dict)
+creds = service_account.Credentials.from_service_account_info(creds_dict)
 PROJECT = "talon-prod-2024"
 DATASET = "Temp_02"
 client = bigquery.Client(credentials=creds, project=PROJECT)
