@@ -13,9 +13,13 @@ from google.oauth2 import service_account
 from google.oauth2.service_account import Credentials
 
 # --- Streamlit UI ---
-st.set_page_config(page_title="Talon Chatbot", layout="wide")
-st.title("Talon Data Chatbot")
-st.markdown("Ask questions about your load and invoice data.")
+st.set_page_config(page_title="Talon Sight", layout="wide")
+st.markdown("""
+    <div style="background-color: #1F4E79; padding: 20px; margin-bottom: 20px;">
+        <h1 style="color: white; text-align: center; margin: 0;">Talon Sight</h1>
+    </div>
+    """, unsafe_allow_html=True)
+#st.markdown("Ask questions about your load and invoice data.")
 
 # --- Sidebar ---
 st.sidebar.image('https://talonlogisticsinc.com/wp-content/uploads/2021/12/Talon-Horizontal-Blue.png', width = 200)
