@@ -18,6 +18,7 @@ st.title("Talon Data Chatbot")
 st.markdown("Ask questions about your load and invoice data.")
 
 # --- Sidebar ---
+st.sidebar.image('https://talonlogisticsinc.com/wp-content/uploads/2021/12/Talon-Horizontal-Blue.png', width = 200)
 st.sidebar.header("Options")
 if st.sidebar.button("🔄 Refresh"):
     st.cache_data.clear()
