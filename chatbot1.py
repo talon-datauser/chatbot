@@ -15,7 +15,7 @@ from google.oauth2.service_account import Credentials
 # --- Streamlit UI ---
 st.set_page_config(page_title="Talon Sight", layout="wide")
 st.markdown("""
-    <div style="background-color: #1F4E79; padding: 20px; margin-bottom: 20px;">
+    <div style="background-color: #1F4E79; padding: 10px; margin-bottom: 10px;">
         <h1 style="color: white; text-align: center; margin: 0;">Talon Sight</h1>
     </div>
     """, unsafe_allow_html=True)
