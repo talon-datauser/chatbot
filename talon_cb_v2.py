@@ -18,7 +18,7 @@ st.set_page_config(page_title="Talon Chatbot", layout="wide")
 st.title("Talon Data Chatbot")
 st.markdown("Ask questions about your load and invoice data.")
 
-st.sidebar.image('"C:\Users\HariSaiCharanVemulap\Desktop\talon_logo.png"', width=200)
+st.sidebar.image('https://image.pitchbook.com/bRWQlec8vZYlhSNUSJSZ0H64MEH1705906265236_200x200', width=200)
 st.sidebar.header("Options")
 if st.sidebar.button("\U0001F504 Refresh"):
     st.cache_data.clear()
