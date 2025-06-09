@@ -1,0 +1,9 @@
+streamlit
+pandas
+langchain
+langchain-google-genai
+langgraph
+google-cloud-bigquery
+google-auth
+pydantic
+db-dtypes
