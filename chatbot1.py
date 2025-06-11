@@ -251,22 +251,21 @@ if user_input:
 
 
 # --- Display Question + Answer + SQL Query (clean format) ---
-sql_index = 0
 chat = st.session_state.chat_history
-while sql_index < len(st.session_state.sql_history):
-    user_msg = chat[sql_index * 2]
-    ai_msg = chat[sql_index * 2 + 1]
+sqls = iter(st.session_state.sql_history)
+sql_used = 0
 
-    # Show user message
-    with st.chat_message("user"):
-        st.markdown(user_msg.content)
+for msg in chat:
+    if isinstance(msg, HumanMessage):
+        with st.chat_message("user"):
+            st.markdown(msg.content)
+    elif isinstance(msg, AIMessage):
+        with st.chat_message("assistant"):
+            st.markdown(msg.content)
 
-    # Show assistant answer
-    with st.chat_message("assistant"):
-        st.markdown(ai_msg.content)
+        # Show SQL only if we haven’t exhausted sql_history
+        if sql_used < len(st.session_state.sql_history):
+            with st.expander("Generated SQL"):
+                st.code(st.session_state.sql_history[sql_used], language="sql")
+            sql_used += 1
 
-    # Show SQL in expander
-    with st.expander("Generated SQL"):
-        st.code(st.session_state.sql_history[sql_index], language="sql")
-
-    sql_index += 1
