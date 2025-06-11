@@ -21,7 +21,7 @@ st.markdown("""
 
 # --- Sidebar ---
 # st.sidebar.image('talon_logistics_inc_logo.jpg', width = 100)
-st.sidebar.image('https://talonlogisticsinc.com/wp-content/uploads/2021/12/Talon-Horizontal-Blue.png', width = 200)
+st.sidebar.image('https://cdn.prod.website-files.com/6748fc3886e2b1e2c003fbc9/6748fc3886e2b1e2c00420a6_Talon-Logistics-Color.png', width = 200)
 st.sidebar.header("Options")
 if st.sidebar.button("🔄 Refresh"):
     st.cache_data.clear()
