@@ -93,6 +93,8 @@ You are a data analyst assistant. For the user question below, write clear guide
 
 Use the table schemas provided below. If a user term does not exactly match a column name, choose the closest semantically similar column.
 
+📌 Whenever the user question relates to **total revenue**, use the column named **invoice_pricing_final_amount**.
+
 ===================
 📊 Table Schemas
 ===================
@@ -115,6 +117,7 @@ Use the table schemas provided below. If a user term does not exactly match a co
 ===================
 List the SQL query guidelines in bullet points.
 """
+
     response = llm.invoke([HumanMessage(content=prompt)])
     return ChatbotState(messages=state.messages, sql_guidelines=response.content)
 
