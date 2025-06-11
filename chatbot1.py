@@ -9,7 +9,6 @@ from typing import List, Optional
 import re
 import json
 from google.cloud import bigquery
-from google.oauth2 import service_account
 from google.oauth2.service_account import Credentials
 
 # --- Streamlit UI ---
@@ -19,9 +18,9 @@ st.markdown("""
         <h1 style="color: white; text-align: center; margin: 0;">Talon Sight</h1>
     </div>
     """, unsafe_allow_html=True)
-#st.markdown("Ask questions about your load and invoice data.")
 
 # --- Sidebar ---
+# st.sidebar.image('talon_logistics_inc_logo.jpg', width = 100)
 st.sidebar.image('https://talonlogisticsinc.com/wp-content/uploads/2021/12/Talon-Horizontal-Blue.png', width = 200)
 st.sidebar.header("Options")
 if st.sidebar.button("🔄 Refresh"):
@@ -30,6 +29,7 @@ if st.sidebar.button("🗑️ Clear Chat"):
     st.session_state.chat_history = []
     st.session_state.sql_history = []
 
+
 st.sidebar.markdown("### Example Questions")
 st.sidebar.markdown("- Total revenue in 2023?")
 st.sidebar.markdown("- Loads created each month?")
@@ -37,7 +37,8 @@ st.sidebar.markdown("- Average invoice amount?")
 
 # --- BigQuery Setup ---
 creds_dict = json.loads(st.secrets["GOOGLE_SERVICE_ACCOUNT_JSON"])
-creds = service_account.Credentials.from_service_account_info(creds_dict)
+creds = Credentials.from_service_account_info(creds_dict)
+
 PROJECT = "talon-prod-2024"
 DATASET = "Temp_02"
 client = bigquery.Client(credentials=creds, project=PROJECT)
