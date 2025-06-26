@@ -176,6 +176,10 @@ def generate_guidelines(state: ChatbotState) -> ChatbotState:
     - How to limit results if the user asks for "top N" or "bottom N" (e.g., explicitly state "apply LIMIT N after ordering").
     - Any additional logic needed to get the correct result (e.g., distinct counts, subqueries if necessary).
 
+    📌 Additional Rules:
+    - Whenever the user’s question relates to total revenue, always use the column `invoice_pricing_final_amount`.
+    - When counting loads, invoice reference numbers, or any similar entities, always apply `COUNT(DISTINCT ...)` to avoid duplication from repeated records.
+    
     Be thoughtful and concise. Avoid SQL syntax — this is strictly the logical plan.
 
     ===================
